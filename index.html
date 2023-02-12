@@ -13,12 +13,18 @@
         <h1>AniFlix</h1>
       </div>
       <div class="search">
-        <input type="text" class="input" placeholder="Enter the anime name" />
-        <button class="btn">Search</button>
+        <form onsubmit="handleSubmit()">
+          <input
+            type="text"
+            class="input"
+            placeholder="Enter the anime name🔍"
+          />
+          <input type="submit" class="btn enter" />
+        </form>
       </div>
     </nav>
     <div class="nothing">
-      <h1>Search For Your Anime</h1>
+      <h3>Popular Picks</h3>
     </div>
     <script src="projects.js"></script>
   </body>
