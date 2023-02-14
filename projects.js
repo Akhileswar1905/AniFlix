@@ -14,18 +14,15 @@ fetch(popular)
   .then((data) => {
     const animeList = data.data;
 
-    // animeList.forEach((anime) => {
-    //   console.log(anime.attributes.titles.en_jp);
-    // });
-
     for (let i = 0; i < data.data.length; i++) {
       // const element = array[i];
       const anime = data.data[i];
       const div = document.createElement("div");
       div.className = "box";
-      console.log(anime);
+
       const tn = document.createElement("img");
       const p = document.createElement("p");
+      p.className = "desc";
       const title = document.createElement("h3");
       const a = document.createElement("a");
       const button = document.createElement("button");
@@ -33,7 +30,7 @@ fetch(popular)
       title.innerText = anime.attributes.titles.en_jp;
       button.innerText = "Watch Here";
       button.className = "btn";
-      // console.log(anime.attributes.titles.en_jp);
+
       a.setAttribute = "target";
       a.target = "_blank";
       a.href = `https://zoro.to/search?keyword=${title.innerText}`;
@@ -47,7 +44,7 @@ fetch(popular)
       container.appendChild(div);
       document.body.appendChild(container);
       const desc = anime.attributes.description;
-      // console.log(desc);
+
       if (desc) {
         p.textContent = desc.substring(0, 150);
         p.textContent += "...";
@@ -63,7 +60,6 @@ function handleSubmit() {
   event.preventDefault();
   nothing.style.display = "none";
   const url = input.value.toLowerCase().replaceAll(" ", "-");
-  console.log(url);
   const API_LINK = `https://kitsu.io/api/edge/anime?filter[text]=${input.value}`;
   container.innerHTML = "";
 
@@ -75,9 +71,10 @@ function handleSubmit() {
         const anime = data.data[i];
         const div = document.createElement("div");
         div.className = "box";
-        console.log(anime);
+
         const tn = document.createElement("img");
         const p = document.createElement("p");
+        p.className = "desc";
         const title = document.createElement("h3");
         const a = document.createElement("a");
         const button = document.createElement("button");
@@ -85,7 +82,7 @@ function handleSubmit() {
         title.innerText = anime.attributes.titles.en_jp;
         button.innerText = "Watch Here";
         button.className = "btn";
-        // console.log(anime.attributes.titles.en_jp);
+
         a.setAttribute = "target";
         a.target = "_blank";
         a.href = `https://zoro.to/search?keyword=${title.innerText}`;
@@ -99,7 +96,6 @@ function handleSubmit() {
         container.appendChild(div);
         document.body.appendChild(container);
         const desc = anime.attributes.description;
-        // console.log(desc);
         if (desc) {
           p.textContent = desc.substring(0, 150);
           p.textContent += "...";
